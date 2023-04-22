@@ -1,0 +1,16 @@
+.registarButton {
+    width: 10vw;
+    height: 5vh;
+    background: orange;
+    border-radius: 20px;
+    border-color: orange;
+    border-style: solid;
+    padding-top: 2vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.1vw;
+    color: white;
+    justify-content: center;
+  
+  }

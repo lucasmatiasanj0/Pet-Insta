@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="{% static 'calculadora.css' %}" />
+    <title>Calculador do Amor</title>
+</head>
+<body>
+    <h1>Calculadora do Amor</h1>
+    <form action="/calculateLovePercentage" method="POST">
+        <label for="name1">Nome 1</label>
+        <input type="text" name="name1" id="name1" />
+        <label for="name2">Nome 2</label>
+        <input type="text" name="name2" id="name2" />
+        <input type="submit" class="registarButton" value="Calcular"/>
+    </form>
+</body>
+</html>
