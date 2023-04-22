@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class User(models.Model):
+class UserPet(models.Model):
     name = models.CharField(max_length=100)
     age = models.IntegerField()
     email = models.EmailField()
@@ -21,7 +21,7 @@ class Post (models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     image = models.ImageField(upload_to='images/')
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(UserPet, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
@@ -29,7 +29,7 @@ class Post (models.Model):
 class Reaction (models.Model):
     isLike = models.BooleanField()
     comment = models.CharField(blank=True, max_length=100)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(UserPet, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
 
     def __str__(self):

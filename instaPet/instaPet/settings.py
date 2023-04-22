@@ -39,11 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     #Internal 
-    'backend.apps.InstapetConfig'
+    'backend.apps.BackendConfig',
     
     #External
     'rest_framework',
     'corsheaders',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
