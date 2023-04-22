@@ -1,7 +1,7 @@
 import "./styles.css";
-import { NewCard } from "./Components/NewCard";
+import { NewCard } from "./componentes/NewCard";
 import { useEffect, useState } from "react";
-import lucas from "./assets/NEI.jpg";
+import zeus from "./assets/zeus.jpg";
 
 export default function App() {
   const [data, setData] = useState([]);
@@ -21,7 +21,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>My news website</h1>
+      <h1>INSTANIMAL</h1>
       <div className="news-grid">
         {data.map((article, index) => {
           return (
@@ -29,7 +29,7 @@ export default function App() {
               key={index}
               title={article.title}
               content={article.description}
-              imgSrc={article.urlToImage}
+              imgSrc={zeus}
             />
           );
         })}

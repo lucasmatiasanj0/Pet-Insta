@@ -1,5 +1,4 @@
 import { useState } from "react";
-import lucas from "../../assets/meMiami.jpeg";
 import { Button } from "../Button";
 
 export const NewCard = ({ imgSrc, title, content }) => {
