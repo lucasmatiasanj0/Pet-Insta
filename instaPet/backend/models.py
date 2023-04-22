@@ -1,30 +1,24 @@
 from django.db import models
 
-# Create your models here.
 
 class UserPet(models.Model):
     name = models.CharField(max_length=100)
-    age = models.IntegerField()
+    dateofbirth = models.DateField()
     email = models.EmailField()
     description = models.TextField()
-    image = models.ImageField(upload_to='images/')
-    password = models.CharField(max_length=20)
-    numberOfPosts = models.IntegerField(default=0)
-    numberOfFollowers = models.IntegerField(default=0)
-    numberOfFollowing = models.IntegerField(default=0)
-
-
+    image_url = models.TextField(default='')
+    
     def __str__(self):
         return self.name
-
+    
+    
 class Post (models.Model):
-    title = models.CharField(max_length=100)
-    description = models.TextField()
-    image = models.ImageField(upload_to='images/')
+    description = models.CharField(max_length=100)
+    image_url = models.TextField(default='')
     user = models.ForeignKey(UserPet, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.title
+        return self.user.name + ' ' + self.description
 
 class Reaction (models.Model):
     isLike = models.BooleanField()
@@ -32,5 +26,12 @@ class Reaction (models.Model):
     user = models.ForeignKey(UserPet, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.description
+    
+class Follow(models.Model):
+    user = models.ForeignKey(UserPet, on_delete=models.CASCADE)
+    follower = models.ForeignKey(UserPet, on_delete=models.CASCADE, related_name='follower')
+    
     def __str__(self):
         return self.description
